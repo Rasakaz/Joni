@@ -11,6 +11,10 @@ function Delivery() {
 
   
   const validate = () => {
+    //print the price of the sale -- come from the product component
+    //from the h2 element
+    console.log(document.querySelector('#id_price').innerHTML.replace('₪', '').replace('מחיר כולל:', ''));
+
     const emailDiv = document.querySelector('#email');
     const emailError = document.querySelector('#email-error');
     const nameDiv = document.querySelector('#fullName');
@@ -88,6 +92,7 @@ function Delivery() {
 
     if(valid){
       console.log('all valid!!');
+      
     }
   }
 

@@ -4,30 +4,193 @@
   box-sizing: border-box;
 }
 
+html,
 body {
-  background-color: #5B6E77;
+  /* background-color:#A6D7EB; */
+  /* background-color:#43719C; */
+  height: 100%;
   font-family: 'Open Sans', Ariel, sans-serif;
+  background: url('./images/joni-backgroud.png') repeat center/cover;
 }
 
 .App {
-  width: 100vw;
-  height: 100vh;
-  position: absolute;
+  height: 100%;
+  margin: auto;
+  /* max-width: 1100px; */
+  width: 100%;
+
+  /* position: absolute; */
   z-index: 1;
   opacity: 1;
-}
-
-
-.App img {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-  opacity: 0.5;
   
 }
 
-.joni-header {
+
+#background-img {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+  /* opacity: 0.8; */
+}
+
+.header {
+  /* position: absolute; */
+  height: 65px;
+  left: 0;
+  display: flex;
+}
+
+.cart-logo-img {
+  /* position: absolute; */
+  width: 48px;
+  margin: 10px;
+  cursor: pointer;
+}
+
+.cart-div {
+  cursor: pointer;
+}
+
+#cart-amount {
+  border: 2px solid black;
+  border-radius: 100px;
+  background-color: #0082D7;
+  width: 25px;
+  height: 25px;
+  transform: translate(25px, -64px);
+  text-align: center;
+
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  color: white;
+}
+
+#joni-heb-eng {
+  border-top: 5px solid white;
+  border-bottom: 5px solid white;
+  font-size: 50px;
+  letter-spacing: 2px;
+  word-spacing: 14px;
+  font-family: 'Alef',Arial,sans-serif;
+  margin-bottom: 15px;
+}
+
+#home-slogan {
+  font-style: italic;
+  font-size: 21px;
+  font-weight: 700;
+  letter-spacing: 15px;
+}
+
+.cards {
+  display: grid;
+  margin-top: 50px;
+  /* border: 2px solid black; */
+  grid-template-columns: repeat(4, 1fr);
+  gap: 5rem;
+}
+
+.card-all {
+  margin: 60px;
+  /* cursor: pointer; */
+  background-color: transparent;
+  height: 300px;
+  perspective: 300px;
+  /* border: 2px solid black; */
+  direction: rtl;
+}
+
+.card-front img {
+  width: 100%;
+  height: 300px;
+  /* object-fit: cover; */
+  opacity: 0.9;
+}
+
+#amount-li  {
+  width: 40px;
+  height: 40px;
+  display: flex;
+}
+
+
+.card-all h1 {
+  font-size: 25px;
+  border-bottom: 1px #fff solid;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+
+.card {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.card-all:hover .card {
+  transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.card-back {
+  background-color: #828282;
+  color: white;
+  padding: 20px;
+  transform: rotateY(180deg);
+}
+
+.plus-minus-input-div {
+  margin-right: 20px;
+  width: 32px;
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+}
+
+.plus-minus-input-div img {
+  cursor: pointer;
+  width: 24px;
+  height: 24px;
+  margin-right: 3px;
+}
+
+.plus-minus-input-div img:hover {
+  transform: scale(1.2);
+}
+
+#amount-input {
+  border: 1px solid black;
+  width: 30px;
+  background: white;
+  color: black;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.card li {
+  list-style: none;
+  padding-bottom: 10px;
+  letter-spacing: 2px;
+  word-spacing: 2px;
+}
+
+/* .joni-header {
   display: flex;
   position: relative;
   transform: translate(50%);
@@ -40,9 +203,9 @@ body {
   font-size: 20px;
   color: white;
   margin-top: 3rem;
-}
+} */
 
-#joni-heb-eng {
+/* #joni-heb-eng {
   border-top: 5px solid white;
   border-bottom: 5px solid white;
   width: 40vh;
@@ -63,8 +226,9 @@ body {
   transform: translate(-10%);
   width: 60vw;
   letter-spacing: 15px;
-  
-}
+} */
+
+
 
 .Buy {
   display: flex;
@@ -106,7 +270,6 @@ body {
 }
 
 .input {
-
   height: 40px;
 }
 
@@ -139,9 +302,56 @@ input[type=text]:focus::placeholder {
   color: red;
 }
 
+@media (max-width: 800px) {
+  .cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .card-back h1 {
+    font-size: 20px;
+  }
+
+  #description {
+    letter-spacing: 0px;
+    word-spacing: 0px;
+  }
+
+  #home-slogan {
+    font-size: 20px;
+    letter-spacing: 0px;
+    word-spacing: 0px;
+    font-weight: 100;
+    text-align: center;
+  }
+
+}
+
+@media (max-width: 500px) {
+  .cards {
+    grid-template-columns: 1fr;
+  }
+
+  .card-back h1 {
+    font-size: 20px;
+  }
+
+  #description{
+    letter-spacing: 0px;
+    word-spacing: 0px;
+  }
+
+  #home-slogan {
+    text-align: center;
+    font-size: 24px;
+    letter-spacing: 0px;
+    word-spacing: 0px;
+    font-weight: 100;
+  }
+}
+
 @media only screen and (max-width: 1200px) { 
   
-  .App {
+  /* .App {
     width: 100vw;
     height: 100vh;
     position: absolute;
@@ -200,7 +410,7 @@ input[type=text]:focus::placeholder {
     height: 75%;
     transform: translateY(30%);
   }
-  
+   */
   .Delivery {
     position: relative;
     width: 100%;

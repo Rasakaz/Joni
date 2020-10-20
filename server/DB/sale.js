@@ -1,6 +1,6 @@
 /* Schema for all the sales */ 
-
 const { Schema, model } = require("mongoose");
+const product = require('./product');
 
 const productSchema = new Schema ({
   email: {
@@ -12,7 +12,7 @@ const productSchema = new Schema ({
     required: true
   },
   address: {
-    type: Number,
+    type: String,
     required: true
   },
   city: {
@@ -22,6 +22,14 @@ const productSchema = new Schema ({
   phone: {
     type: Number,
     required: true
+  },
+  price: {
+    type: Number,
+    required: true
+  },
+  products: {
+      type: Array,
+      required: true
   }
 });
 

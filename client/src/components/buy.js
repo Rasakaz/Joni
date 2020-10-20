@@ -3,18 +3,18 @@ import { BrowserRouter as Router,
   Route } from 'react-router-dom';
 import Delivery from './delivery';
 import Product from './product.js';
-import './App.css';
+import '../App.css';
 
 function Buy() {
   return (
-    <div className="Buy">
-      <Delivery/>
-      <Router>
+    <Router>
         <Route path='/sale/:saleId'>
-          <Product />
+          <div className="Buy">
+            <Delivery/>
+            <Product />
+          </div>
         </Route>
       </Router>
-    </div>
   ); 
 }
 

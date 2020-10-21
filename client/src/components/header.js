@@ -14,10 +14,18 @@ function Header({amount , setAmount, cartProducts, setCartProducts}) {
     }
   });
 
+  const cartClicked = () => {
+    window.location.href = 'http://localhost:3000/delivery-details';
+  }
+
+  const logoClicked = () => {
+    window.location.href = 'http://localhost:3000';
+  }
+
   return (
     <div className='header'>
-      <img src={logo} alt='logo' className='cart-logo-img'/>
-      <div className='cart-div'>
+      <img src={logo} alt='logo' className='cart-logo-img' onClick={logoClicked}/>
+      <div className='cart-div' onClick={cartClicked}>
         <img src={cart} alt='cart' className='cart-logo-img'/>
         <strong><p id='cart-amount'>{amount}</p></strong>
       </div>

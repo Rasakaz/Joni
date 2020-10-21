@@ -7,17 +7,31 @@ const ProductCard = ({product, amount, setAmount, cartProducts, setCartProducts}
   const minus = () => {
     if(productAmount > 0) {
       setProductAmount(productAmount - 1)
+      // cartProducts.array.forEach(element => {
+      //   if(element.title === product.title){
+      //     element.amount--;
+      //   }
+      // });
       AddSub('sub');
     }
   }
 
   const plus = () => {
     setProductAmount(productAmount + 1);
+    let cart = [];
+    cartProducts.map((element) => {
+      if(element.product === product.title) {
+        cart.push({product: element.product, amount: element.amount + 1});
+      } else {
+        cart.push(element);
+      }
+      setCartProducts(cart);
+    });
+    // console.log(cart);
     AddSub('add');
   }
   
   useEffect(() => {
-    console.log(cartProducts);
     if(add_sub === 'add') {
       setAmount(amount + 1);
     } 

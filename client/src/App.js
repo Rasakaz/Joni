@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router,
+import { Switch, BrowserRouter as Router,
   Route } from 'react-router-dom';
 import Header from './components/header.js';
 import Title from './components/title.js';
 import Delivery from './components/delivery.js';
+import Buy from './components/buy.js';
 import SalesGrid from './components/salesGrid.js';
 import './App.css';
 
-// import Image from './images/joni-backgroud.png';
+import Image from './images/joni-backgroud.png';
 
 function App() {
   const [products, setProducts] = useState([]);
@@ -28,22 +29,25 @@ function App() {
     fetchProducts();
   }, []);
 
-
   return (
     <Router>
-      <div className="App">
+      <div className="App" >
+        <img id='background-img' src={Image}/>
         <Header amount={amount} setAmount={setAmount} 
         cartProducts={cartProducts} 
         setCartProducts={setCartProducts}/>
         <Title/>
-      <Route exact path='/'>
-        <SalesGrid products={products} amount={amount} 
-        setAmount={setAmount} cartProducts={cartProducts}
-        setCartProducts={setCartProducts}/>
-      </Route>
-      <Route path='/delivery-details'>
-        <Delivery />
-      </Route>
+        <Switch>
+          <Route exact path='/'>
+            <SalesGrid products={products} amount={amount} 
+            setAmount={setAmount} cartProducts={cartProducts}
+            setCartProducts={setCartProducts}/>
+          </Route>
+          <Route path='/delivery-details'>
+            <Buy amount={amount} 
+            cartProducts={cartProducts}/>
+          </Route>
+        </Switch>
       </div>
     </Router>
   ); 

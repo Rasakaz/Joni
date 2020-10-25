@@ -1,2 +1,7 @@
 TODO:
 
+* [ ] - organize all the folders (add routes folder ... etc)
+* [ ] - create an email/sms sender
+* [ ] - add the shipping data to data base
+* [ ] - AMAZON - AWS!
+* [ ] - check for the errors in frontend (browser f12)

@@ -5,10 +5,6 @@ const db = require('./DB/db.js');
 const bodyParser = require('body-parser'); // use to parse the json body! use it with cors
 const PORT = process.env.PORT || 5000;
 
-/* 
-  [ ] - build a route that get the sale ads id as a parameter
-  [ ] - return the landing page with the picture that get in the id
-*/
 
 app.use(express.json()); // change bodyparser
 app.use(bodyParser.json()); //
@@ -20,7 +16,8 @@ const corsOptions = {
 app.use(cors(corsOptions));
 
 app.post('/api/shipping', (req, res) => {
-  db.storeDelivery(req.body);
+  console.log(req.body);
+  // db.storeDelivery(req.body);
   res.send('ok'); // status 200
 });
 

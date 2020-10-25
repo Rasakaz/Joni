@@ -1,17 +1,19 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import '../App.css';
 
-function Delivery() {
+function Delivery({cartProducts}) {
   const [email, setEmail] = useState('');
   const [fullName, setFullName] = useState('');
   const [address, setAddress] = useState('');
   const [city, setCity] = useState('');
   const [phone, setPhone] = useState('');
   const [price, setPrice] = useState('');
-  const [shippped, setShipped] = useState(false);
+  // const [shippped, setShipped] = useState(false);
   const [valid, isValid] = useState(false);
 
   const shipping = async () => {
+    validate();
     if(!valid){
       return;
     }
@@ -21,7 +23,8 @@ function Delivery() {
       address: address,
       city: city,
       phone: phone,
-      price: price
+      price: price,
+      products: cartProducts.filter((element) => element.amount > 0)
     });
     
     const options = {

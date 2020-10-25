@@ -6,12 +6,16 @@ const ProductCard = ({product, amount, setAmount, cartProducts, setCartProducts}
 
   const minus = () => {
     if(productAmount > 0) {
-      setProductAmount(productAmount - 1)
-      // cartProducts.array.forEach(element => {
-      //   if(element.title === product.title){
-      //     element.amount--;
-      //   }
-      // });
+      setProductAmount(productAmount - 1);
+      let cart = [];
+      cartProducts.map((element) => {
+        if(element.product === product.title) {
+          cart.push({product: element.product, amount: element.amount - 1});
+        } else {
+          cart.push(element);
+        }
+        setCartProducts(cart);
+      });
       AddSub('sub');
     }
   }
@@ -27,7 +31,6 @@ const ProductCard = ({product, amount, setAmount, cartProducts, setCartProducts}
       }
       setCartProducts(cart);
     });
-    // console.log(cart);
     AddSub('add');
   }
   
@@ -37,6 +40,12 @@ const ProductCard = ({product, amount, setAmount, cartProducts, setCartProducts}
     } 
     if(add_sub === 'sub') {
       setAmount(amount - 1);
+    } else {
+      cartProducts.map((element) => {
+        if(element.product === product.title){
+          setProductAmount(element.amount);
+        }
+      });
     }
   }, [productAmount, add_sub]);
 

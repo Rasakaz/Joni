@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import '../App.css';
 import logo from '../images/joni-logo.png';
 import cart from '../images/cart.png';
+import { Link } from 'react-router-dom';
 
 function Header({amount , setAmount, cartProducts, setCartProducts}) {
 
@@ -12,21 +13,18 @@ function Header({amount , setAmount, cartProducts, setCartProducts}) {
     } else {
       cartAmount.style.display = '';
     }
-  });
+  }, [amount, setAmount]);
 
-  const cartClicked = () => {
-    window.location.href = 'http://localhost:3000/delivery-details';
-  }
-
-  const logoClicked = () => {
-    window.location.href = 'http://localhost:3000';
-  }
 
   return (
     <div className='header'>
-      <img src={logo} alt='logo' className='cart-logo-img' onClick={logoClicked}/>
-      <div className='cart-div' onClick={cartClicked}>
-        <img src={cart} alt='cart' className='cart-logo-img'/>
+      <Link to='/'>
+        <img src={logo} alt='logo' className='cart-logo-img'/>
+      </Link>
+      <div className='cart-div'>
+        <Link to='/delivery-details'>
+          <img src={cart} alt='cart' className='cart-logo-img'/>
+        </Link>
         <strong><p id='cart-amount'>{amount}</p></strong>
       </div>
     </div>

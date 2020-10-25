@@ -1,48 +1,41 @@
 import React, {useState, useEffect} from 'react';
 import '../App.css';
-import {useParams} from 'react-router-dom';
 
+function Product({amount, cartProducts}) {
 
-function Product() {
-  const {saleId} = useParams();
-  const [saleData, setSaleData] = useState({});
-  const [isDataFetch, setIsDataFetch] = useState(false);
-
+  /* the sale:
+    10 --> 79
+    20 --> 139
+    199 --> 30 */
+    
+  const [sumPrice, setSumPrice] = useState(0);
 
   useEffect(() => {
-    async function fetchSaleData () {
-      const response =  await fetch(`http://localhost:5000/api/saleads/${saleId}`);
-      const sale = await response.json();
-      setSaleData(sale);
-      setIsDataFetch(true);
-    }
-    if(!isDataFetch) {
-      fetchSaleData();
-    }
-  });
-  
-  const renderData = () =>{
-    if(isDataFetch) {
-      return (
-        <div>
-          <img src={require(`${saleData.path}`)} 
-            alt='product_image'
-            style={{width: '70%', height: '50%'}}
-          />
-          <h2 id='id_price'>מחיר כולל: {saleData.price}₪</h2> {/* ctrl + alt + 4 = ₪ */}
-        </div>
-      );
-    }
-  }
+    const sum = amount == 10 ? 79 : amount == 20 ? 139 : amount == 30 ? 199: null;
+    setSumPrice(sum);
+  }, []);
 
   return (
     <div className="Product">
-      {renderData()}
+      <h3>סיכום הזמנה</h3> 
+        <table>
+          <tr>
+            <th>מוצר</th>
+            <th>כמות</th>
+          </tr>
+        {cartProducts.map((element) => {
+          return (element.amount > 0) ?
+            <tr>
+              <th>{element.product}</th>
+              <th>{element.amount}</th>
+            </tr>
+        : null
+        })}
+        </table>
+      <h2 id='id_price'>מחיר כולל:  {sumPrice}₪</h2> {/* ctrl + alt + 4 = ₪ */}
     </div>
   ); 
 }
 
 export default Product;
 
-
- 

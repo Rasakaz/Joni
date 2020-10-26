@@ -4,7 +4,7 @@ const saleADS = require('./salesADS');
 const product = require('./product');
 const sale = require('./sale');
 
-mongoose.connect('mongodb://localhost/joni', {useNewUrlParser: true});
+mongoose.connect('mongodb://joni-webapp-user:webappjoni!@localhost:27017/joni', {useNewUrlParser: true});
 
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error'));

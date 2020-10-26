@@ -2,7 +2,10 @@ const express = require('express');
 const app = express();
 const cors = require('cors');
 const db = require('./DB/db.js');
+// const routes = require('./routes.js');
 const bodyParser = require('body-parser'); // use to parse the json body! use it with cors
+const emailSender = require('./emailSender.js');
+
 const PORT = process.env.PORT || 5000;
 
 
@@ -13,11 +16,13 @@ const corsOptions = {
   origin: 'http://localhost:3000',
   optionsSuccessStatus: 200
 };
+
 app.use(cors(corsOptions));
 
 app.post('/api/shipping', (req, res) => {
-  console.log(req.body);
-  // db.storeDelivery(req.body);
+  // console.log(req.body);
+  db.storeDelivery(req.body);
+  emailSender.send(req.body);
   res.send('ok'); // status 200
 });
 
@@ -44,5 +49,8 @@ app.get('/', (req, res) => {res.send('landing page sale API')});
 app.post('/deliveryDetails',(req, res) => {
   console.log(req.body);
 });
+
+
+
 
 app.listen(PORT, () => (console.log(`Server listening on port: ${PORT}`)));

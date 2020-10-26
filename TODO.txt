@@ -1,7 +1,8 @@
 TODO:
 
-* [ ] - organize all the folders (add routes folder ... etc)
-* [ ] - create an email/sms sender
-* [ ] - add the shipping data to data base
+* [x] - check for the errors in frontend (browser f12)
+* [x] - create an email/sms sender
+* [x] - add the shipping data to data base
+* [x] - privating git
 * [ ] - AMAZON - AWS!
-* [ ] - check for the errors in frontend (browser f12)
+* [ ] - organize all the folders (add routes folder ... etc)

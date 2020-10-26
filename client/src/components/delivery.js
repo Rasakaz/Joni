@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import React, { useState } from 'react';
 import '../App.css';
 
-function Delivery({cartProducts}) {
+function Delivery({amount, cartProducts}) {
   const [email, setEmail] = useState('');
   const [fullName, setFullName] = useState('');
   const [address, setAddress] = useState('');
@@ -124,6 +123,10 @@ function Delivery({cartProducts}) {
       phoneDiv.style.border = "none";
       phoneError.textContent = "";
       isValid(true);
+    }
+
+    if(amount === 0) {
+     isValid(false);
     }
   }
   

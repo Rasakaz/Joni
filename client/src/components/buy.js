@@ -1,6 +1,6 @@
 import React from 'react';
 import Delivery from './delivery';
-import Product from './product.js';
+import Cart from './cart.js';
 import '../App.css';
 
 function Buy({amount, cartProducts}) {
@@ -9,7 +9,7 @@ function Buy({amount, cartProducts}) {
       <Delivery amount={amount}
         cartProducts={cartProducts}
       />
-      <Product amount={amount}
+      <Cart amount={amount}
         cartProducts={cartProducts}
       />
     </div>

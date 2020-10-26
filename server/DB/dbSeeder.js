@@ -94,7 +94,7 @@ const products = [
   new product({
     title: "דג שלם עטוף ברווז",
     description: "4LIFE -  - חטיף לכלב - עשוי מרכיבים טבעיים בלבד, החטיף מתאים לכל סוגי הכלבים ובכל הגילאים. ",
-    price: 19.90,
+    price: 14.99,
     path: 'duck-fish.png',
   }),
   new product({

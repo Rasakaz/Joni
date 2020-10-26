@@ -3,7 +3,6 @@ import { Switch, BrowserRouter as Router,
   Route } from 'react-router-dom';
 import Header from './components/header.js';
 import Title from './components/title.js';
-import Delivery from './components/delivery.js';
 import Buy from './components/buy.js';
 import SalesGrid from './components/salesGrid.js';
 import './App.css';
@@ -32,7 +31,7 @@ function App() {
   return (
     <Router>
       <div className="App" >
-        <img id='background-img' src={Image}/>
+        <img id='background-img' src={Image} alt='background-img'/>
         <Header amount={amount} setAmount={setAmount} 
         cartProducts={cartProducts} 
         setCartProducts={setCartProducts}/>

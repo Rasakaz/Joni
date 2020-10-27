@@ -16,7 +16,7 @@ function App() {
 
   useEffect(() => {
     const fetchProducts = async () => {
-      const response =  await fetch(`http://localhost:5000/api/getProducts`); // fetching from the api all the products
+      const response =  await fetch(`http://localhost:8080/api/getProducts`); // fetching from the api all the products
       const data = await response.json();
       let allProducts = [];
       data.map((d) => {

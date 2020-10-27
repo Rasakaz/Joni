@@ -4,7 +4,11 @@ const saleADS = require('./salesADS');
 const product = require('./product');
 const sale = require('./sale');
 
-mongoose.connect('mongodb://joni-webapp-user:webappjoni!@localhost:27017/joni', {useNewUrlParser: true});
+const config = require('../config/config');
+
+const isDev = process.env.NODE_ENV !== 'production';
+
+mongoose.connect(isDev ? config.db_dev : config.db);
 
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error'));

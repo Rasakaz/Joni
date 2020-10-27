@@ -1,7 +1,7 @@
 /* DATABASE seeder */
 
-const {v4: uuidv4} =  require('uuid');
-const salesADS = require('./salesADS');
+// const {v4: uuidv4} =  require('uuid');
+// const salesADS = require('./salesADS');
 const product = require('./product');
 
 

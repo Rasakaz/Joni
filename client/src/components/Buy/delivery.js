@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-// import '../../App.css';
 
 function Delivery({amount, cartProducts}) {
   // const [email, setEmail] = useState('');
@@ -35,12 +34,13 @@ function Delivery({amount, cartProducts}) {
       },
       body: sale
     };
-    console.log(sale);
     const response = await fetch(`/api/shipping`, options);
-    console.log(response);
-    
-    // here check if shipped and then pop up a message and clear all fields.
-    // and redirect to home page
+    // const json = await response.JSON();
+    if(response.status === 200) {
+      window.alert(".הזמנתך התקבלה, ג'וני יצור איתך קשר. תודה");
+      window.location.href = process.env.PORT ? "http://jonifamilydogs.com" : "http://localhost:3000/";
+
+    }
   }
 
   const validate = () => {

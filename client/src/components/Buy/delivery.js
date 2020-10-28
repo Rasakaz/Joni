@@ -38,7 +38,7 @@ function Delivery({amount, cartProducts}) {
     // const json = await response.JSON();
     if(response.status === 200) {
       window.alert(".הזמנתך התקבלה, ג'וני יצור איתך קשר. תודה");
-      window.location.href = process.env.PORT ? "http://jonifamilydogs.com" : "http://localhost:3000/";
+      window.location.href = "http://jonifamilydogs.com";
 
     }
   }

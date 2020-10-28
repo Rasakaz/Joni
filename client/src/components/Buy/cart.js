@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import '../App.css';
+// import '../../App.css';
 
 function Cart({amount, cartProducts}) {
 
@@ -11,7 +11,16 @@ function Cart({amount, cartProducts}) {
   const [sumPrice, setSumPrice] = useState(0);
 
   useEffect(() => {
-    const sum = amount === 10 ? 79 : amount === 20 ? 139 : amount === 30 ? 199 : null;
+    let sum;
+    if(amount > 0 && amount < 10) {
+      sum = 14.99 * amount;
+    } else if(amount >= 10 && amount < 20){
+      sum = 79 + ((amount - 10) * 14.99);
+    } else if (amount >= 20 && amount < 30) {
+      sum = 139 + ((amount - 20) * 14.99);
+    } else if(amount >= 30) {
+      sum = 199 + ((amount - 30) * 14.99);
+    }
     setSumPrice(sum);
   }, [amount]);
 

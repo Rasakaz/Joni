@@ -2,7 +2,7 @@
 
 // const {v4: uuidv4} =  require('uuid');
 // const salesADS = require('./salesADS');
-const product = require('./product');
+const product = require('../Entities/product');
 
 
 const products = [

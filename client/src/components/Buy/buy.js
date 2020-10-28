@@ -1,7 +1,7 @@
 import React from 'react';
 import Delivery from './delivery';
 import Cart from './cart.js';
-import '../App.css';
+// import '../../App.css';
 
 function Buy({amount, cartProducts}) {
   return (

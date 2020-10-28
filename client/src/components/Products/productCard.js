@@ -54,7 +54,7 @@ const ProductCard = ({product, amount, setAmount, cartProducts, setCartProducts}
     return (
       <div className='card'>
         <div className='card-front'>
-          <img src={require(`../images/products/${product.path}`)}
+          <img src={require(`../../images/products/${product.path}`)}
               alt={product.title}
           />
         </div>
@@ -67,9 +67,9 @@ const ProductCard = ({product, amount, setAmount, cartProducts, setCartProducts}
             <li id='amount-li'>
               <strong>כמות:</strong>
               <div className='plus-minus-input-div'>
-                <img alt='plus-img' src={require(`../images/plus.png`)} onClick={plus}/>
+                <img alt='plus-img' src={require(`../../images/plus.png`)} onClick={plus}/>
                 <p id='amount-input'>{productAmount}</p>
-                <img alt='minus-img' src={require(`../images/minus.png`)} onClick={minus}/>
+                <img alt='minus-img' src={require(`../../images/minus.png`)} onClick={minus}/>
               </div>
             </li>
           </ul>

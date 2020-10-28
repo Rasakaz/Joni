@@ -1,11 +1,15 @@
 const db = require('../../DB/db.js');
+const emailSender = require('../../EmailSmsSender/emailSender');
 
 module.exports = (app) => {
   app.post('/api/shipping', (req, res) => {
-    // console.log(req.body);
+    console.log(req.body);
+    
     db.storeDelivery(req.body);
+    
     emailSender.send(req.body);
-    res.send('ok'); // status 200
+
+    // res.status(200); // status 200
   });
   
   app.get('/api/getProducts', async (req, res) => {

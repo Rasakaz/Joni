@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import '../App.css';
+// import '../../App.css';
 
 function Delivery({amount, cartProducts}) {
-  const [email, setEmail] = useState('');
+  // const [email, setEmail] = useState('');
   const [fullName, setFullName] = useState('');
   const [address, setAddress] = useState('');
   const [city, setCity] = useState('');
@@ -16,8 +16,8 @@ function Delivery({amount, cartProducts}) {
     if(!valid){
       return;
     }
+
     const sale = JSON.stringify({
-      email: email,
       fullName: fullName,
       address: address,
       city: city,
@@ -38,12 +38,14 @@ function Delivery({amount, cartProducts}) {
     console.log(sale);
     const response = await fetch(`/api/shipping`, options);
     console.log(response);
+    
     // here check if shipped and then pop up a message and clear all fields.
+    // and redirect to home page
   }
 
   const validate = () => {
-    const emailDiv = document.querySelector('#email');
-    const emailError = document.querySelector('#email-error');
+    // const emailDiv = document.querySelector('#email');
+    // const emailError = document.querySelector('#email-error');
     const nameDiv = document.querySelector('#fullName');
     const nameError = document.querySelector('#name-error');
     const addressDiv = document.querySelector('#address');
@@ -57,7 +59,6 @@ function Delivery({amount, cartProducts}) {
     const Errors = {
       border: '1px solid red',
       emptyField: 'שדה חובה.',
-      emailError: 'כתובת אימייל לא תקינה.',
       phone: 'מספר טלפון לא תקין.',
     };
 
@@ -68,18 +69,18 @@ function Delivery({amount, cartProducts}) {
       isValid(false);
     }
 
-    if(email === ""){
-      emailDiv.style.border = Errors.border;;
-      emailError.textContent = Errors.emptyField;
-      isValid(false);
-    } else if(/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/.test(email)) {
-      emailDiv.style.border = "none";
-      emailError.textContent = "";
-      isValid(true);
-    } else {
-      emailDiv.style.border = Errors.emailError;
-      isValid(false);
-    }
+    // if(email === ""){
+    //   emailDiv.style.border = Errors.border;;
+    //   emailError.textContent = Errors.emptyField;
+    //   isValid(false);
+    // } else if(/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/.test(email)) {
+    //   emailDiv.style.border = "none";
+    //   emailError.textContent = "";
+    //   isValid(true);
+    // } else {
+    //   emailDiv.style.border = Errors.emailError;
+    //   isValid(false);
+    // }
     
     if(fullName === "") {
       nameDiv.style.border = Errors.border;
@@ -133,11 +134,11 @@ function Delivery({amount, cartProducts}) {
   return (
     <div className="Delivery">
       <form>
-        <input className='input' type='email' id='email' placeholder="* דואר אלקטרוני"
+        {/* <input className='input' type='email' id='email' placeholder="* דואר אלקטרוני"
             onChange={(e) =>{ 
               setEmail(e.target.value);
               validate();}}/>
-        <div className="error-div" id="email-error"></div>
+        <div className="error-div" id="email-error"></div> */}
         <input className='input' type='text' id='fullName' placeholder="* שם מלא" 
            onChange={(e) => {
              setFullName(e.target.value);
@@ -158,7 +159,7 @@ function Delivery({amount, cartProducts}) {
             setPhone(e.target.value);
             validate();}}/>
         <div className="error-div" id="phone-error"></div>
-        <input className='submit' type='button' value='שמור והמשך' onClick={shipping}/>
+        <input className='submit' type='button' value='הזמן משלוח' onClick={shipping}/>
       </form>
     </div>
   ); 

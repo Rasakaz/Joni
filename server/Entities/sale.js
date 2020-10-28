@@ -3,10 +3,6 @@ const { Schema, model } = require("mongoose");
 const product = require('./product');
 
 const productSchema = new Schema ({
-  email: {
-    type: String,
-    required: true
-  },
   fullName: {
     type: String, 
     required: true

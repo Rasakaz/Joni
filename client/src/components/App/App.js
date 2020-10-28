@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { Switch, BrowserRouter as Router,
   Route } from 'react-router-dom';
-import Header from './components/header.js';
-import Title from './components/title.js';
-import Buy from './components/buy.js';
-import SalesGrid from './components/salesGrid.js';
-import './App.css';
+import Header from '../Header/header.js';
+import Title from '../Title/title.js';
+import Buy from '../Buy/buy.js';
+import SalesGrid from '../Products/salesGrid.js';
+import '../../App.css';
 
-import Image from './images/joni-backgroud.png';
+import Image from '../../images/joni-backgroud.png';
 
 function App() {
   const [products, setProducts] = useState([]);

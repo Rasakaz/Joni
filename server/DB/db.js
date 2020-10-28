@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
 const seeder = require('./dbSeeder');
-const saleADS = require('./salesADS');
-const product = require('./product');
-const sale = require('./sale');
+const saleADS = require('../Entities/salesADS');
+const product = require('../Entities/product');
+const sale = require('../Entities/sale');
 
 const config = require('../config/config');
 
@@ -21,7 +21,6 @@ db.once('open', () => {
 //function that get a product schema/sale schema and store it in the data base
 const storeDelivery = (dataSale) => {
   const productToStore = new sale({
-    email: dataSale.email,
     fullName: dataSale.fullName,
     address: dataSale.address,
     city: dataSale.city,

@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
-import '../App.css';
-import logo from '../images/joni-logo.png';
-import cart from '../images/cart.png';
+import logo from '../../images/joni-logo.png';
+import cart from '../../images/cart.png';
 import { Link } from 'react-router-dom';
 
 function Header({amount , setAmount, cartProducts, setCartProducts}) {

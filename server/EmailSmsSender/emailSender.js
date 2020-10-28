@@ -9,6 +9,16 @@ const transporter = nodemailer.createTransport({
 });
 
 const send = (data) => {
+  let str = "\n";
+
+ data.products.forEach((element) => {
+  console.log(element.product, element.amount);
+  str += "מוצר: " + element.product + " כמות: " + element.amount + " \n";
+ });
+
+ console.log(str);
+
+
   const mail = {
     from: 'jonidogsfamily@gmail.com',
     to: 'jonidogsfamily@gmail.com',
@@ -19,7 +29,7 @@ const send = (data) => {
       city: ${data.city},
       phone: ${data.phone},
       price: ${data.price}
-      products: ${data.products}`
+      products: {${str}}`
   };
 
   transporter.sendMail(mail, (err, info) => {

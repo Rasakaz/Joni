@@ -21,5 +21,5 @@ const product = new Schema ({
   }
 });
 
-module.exports.product = product;
+
 module.exports = model('product', product);

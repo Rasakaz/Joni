@@ -36,7 +36,7 @@ function Delivery({amount, cartProducts}) {
       body: sale
     };
     console.log(sale);
-    const response = await fetch(`http://localhost:5000/api/shipping`, options);
+    const response = await fetch(`/api/shipping`, options);
     console.log(response);
     // here check if shipped and then pop up a message and clear all fields.
   }

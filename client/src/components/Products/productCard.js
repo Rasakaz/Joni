@@ -3,7 +3,8 @@ import React, { useState, useEffect } from 'react';
 const ProductCard = ({product, amount, setAmount, cartProducts, setCartProducts}) => {
   const [productAmount, setProductAmount] = useState(0);
   const [add_sub, AddSub] = useState('');
-
+  const [windowWidth, setWindowWidth] = useState(undefined);
+  
   const minus = () => {
     if(productAmount > 0) {
       setProductAmount(productAmount - 1);
@@ -35,6 +36,7 @@ const ProductCard = ({product, amount, setAmount, cartProducts, setCartProducts}
   }
   
   useEffect(() => {
+    setWindowWidth(window.innerWidth);
     if(add_sub === 'add') {
       setAmount(amount + 1);
     } 
@@ -57,6 +59,7 @@ const ProductCard = ({product, amount, setAmount, cartProducts, setCartProducts}
           <img src={require(`../../images/products/${product.path}`)}
               alt={product.title}
           />
+        {windowWidth < 800 ? <button>הוספה לעגלה</button>:null}
         </div>
         <div className='card-back'>
           <h1>{product.title}</h1>

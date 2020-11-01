@@ -148,7 +148,7 @@ body {
 
 .card-front {
   position: absolute;
-  -webkit-backface-visibility: hidden;
+  /* -webkit-backface-visibility: hidden; */
   backface-visibility: hidden;
 }
 
@@ -157,7 +157,7 @@ body {
   position: absolute;
   width: 90%;
   height: 100%;
-  -webkit-backface-visibility: hidden;
+  /* -webkit-backface-visibility: hidden; */
   backface-visibility: hidden;
   background-color: #828282;
   color: white;

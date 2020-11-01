@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Redirect } from 'react-router-dom';
 
 function Delivery({amount, cartProducts}) {
   // const [email, setEmail] = useState('');
@@ -39,7 +40,6 @@ function Delivery({amount, cartProducts}) {
     if(response.status === 200) {
       window.alert(".הזמנתך התקבלה, ג'וני יצור איתך קשר. תודה");
       window.location.href = "http://jonifamilydogs.com";
-
     }
   }
 

@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Redirect } from 'react-router-dom';
 
 function Delivery({amount, cartProducts}) {
   // const [email, setEmail] = useState('');

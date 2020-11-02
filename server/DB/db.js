@@ -9,7 +9,7 @@ const config = require('../config/config');
 // const isDev = process.env.NODE_ENV !== 'production';
 
 // mongoose.connect(isDev ? config.db_dev : config.db);
-mongoose.connect(config.db);
+mongoose.connect(config.db_dev);
 
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error'));
